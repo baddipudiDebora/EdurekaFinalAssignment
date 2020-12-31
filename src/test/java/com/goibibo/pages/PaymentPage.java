@@ -41,6 +41,7 @@ public class PaymentPage extends BaseClass {
 
 	public void enterPaymentDetails(String cnum, String cname, String cexpiryDate, String invalidcvvcode)
 			throws InterruptedException {
+		//scroll down
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,500)");
 		cardNumber.sendKeys(cnum);

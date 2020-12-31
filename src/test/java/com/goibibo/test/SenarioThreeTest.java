@@ -8,13 +8,14 @@ import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
 import com.goibibo.base.BaseClass;
+import com.goibibo.pages.SingleHotelsViewPage;
 
-public class SenarioTwoTest extends BaseClass {
-	//Senario 2  -->  Book for a hotel stay for one adult in Ooty,
-	//wherein the stay should be more than a day. Fill in dummy card details while making the payment
-	//and observe the error message  
+public class SenarioThreeTest extends BaseClass {
+	//Senario 2  -->  Search for a hotel and 
+	//select the first the hotel to get the details on the rooms and rates, location, guest reviews, questions
+	//and answers and hotel policies 
 	@Test(priority = 1)
-	public void invalidPaymentError() throws InterruptedException {
+	public void hotelAndRoomDetials() throws InterruptedException {
 		landingpageobj.clickOnHotes();
 		hotelBookingPageobj.enterHotels("Ooty");
 		hotelBookingPageobj.enterCheckInDate();
@@ -23,20 +24,21 @@ public class SenarioTwoTest extends BaseClass {
 		hotelBookingPageobj.clickOnSearch();
 		Thread.sleep(3000);
 		hotelsViewPageobj.clickOnFirstHotel();
-		Thread.sleep(3000);
-		// to switch the control from one tab to anouter
+		// code to switch to anothter tab
 		Set<String> ids = driver.getWindowHandles();
 		Iterator<String> iterator = ids.iterator();
 		String parentID = iterator.next();
 		String childID = iterator.next();
-	
 		driver.switchTo().window(childID);
-		singleHotelViewPageobj.selectRoom();
-		proceedtoPaymentPageobj.enterBookingDetails("Swaroop","Baddipudi","swarp.k@gmail.com","9857856765");
+		singleHotelViewPageobj.getFirstHotelName();
+		singleHotelViewPageobj.gethotelAddress();
+		singleHotelViewPageobj.gethotelRating();
+		singleHotelViewPageobj.viewRooms();
+		singleHotelViewPageobj.getRoomDetials();
 		
-		Thread.sleep(3000);
-		paymentPageobj.enterPaymentDetails("@sdfg4356", "       ", "12/22", "678");
-		System.out.println(paymentPageobj.getErrorMsg());
+		singleHotelViewPageobj.getQuestionAndAns();
+		
+		
 
 	}
 

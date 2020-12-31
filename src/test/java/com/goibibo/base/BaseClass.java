@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 
@@ -17,13 +18,14 @@ public class BaseClass {
 //	public static Logger log = Logger.getLogger("devpinoyLogger");
 	public static WebDriverWait wait;
 	public static String browser;
-	// three page clases are declared here
+	// all page clases are declared here
 	public LandingPage landingpageobj;
 	public HotelSearchPage hotelBookingPageobj;
 	public HotelsViewPage hotelsViewPageobj;
 	public SingleHotelsViewPage singleHotelViewPageobj;
 	public ProceedtoPaymentPage proceedtoPaymentPageobj;
 	public PaymentPage paymentPageobj;
+	
 
 	@BeforeTest
 	public void openBrowser() {
@@ -38,13 +40,15 @@ public class BaseClass {
 			options.addArguments("--disable-extensions");
 			options.addArguments("--disable-infobars");
 			driver = new ChromeDriver(options);
-			// log.debug("Launching Chrome");
+			}
+		else if (Constants.browser.equals("chrome")) {
+			driver= new InternetExplorerDriver();
 		}
-
 		driver.get(Constants.testsiteurl);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		// two page clases are instantiated here with a parameterized Constructor
 		// passing the Webdriver reference
 		landingpageobj = new LandingPage(driver);
