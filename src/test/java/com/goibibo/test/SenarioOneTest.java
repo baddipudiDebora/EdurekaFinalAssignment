@@ -4,15 +4,19 @@ import org.testng.annotations.Test;
 
 import com.goibibo.base.BaseClass;
 
-public class SearchHotelsTest extends BaseClass {
+public class SenarioOneTest extends BaseClass {
 	@Test(priority = 1)
-	public void validEmailForgotTest() throws InterruptedException {
+	public void hotelSearch() throws InterruptedException {
 		landingpageobj.clickOnHotes();
 		hotelBookingPageobj.enterHotels("Ooty");
 		hotelBookingPageobj.enterCheckInDate();
-		//	hotelBookingPageobj.enterCheckOutDate();
+		// hotelBookingPageobj.enterCheckOutDate();
 		hotelBookingPageobj.enterNumofGuest();
 		hotelBookingPageobj.clickOnSearch();
+		Thread.sleep(3000);
+		hotelsViewPageobj.getHotelsCount();
+		hotelsViewPageobj.getFirstHotelName();
+		hotelsViewPageobj.clickOnFirstHotel();
 	}
-	
+
 }

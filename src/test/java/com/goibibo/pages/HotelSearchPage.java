@@ -9,7 +9,7 @@ import org.testng.Assert;
 
 import com.goibibo.base.BaseClass;
 
-public class HotelBookingPage {
+public class HotelSearchPage {
 	// HotelSearchtextbox
 	@FindBy(id = "downshift-1-input")
 	private WebElement hotelSearchtextbox;
@@ -40,7 +40,7 @@ public class HotelBookingPage {
 	private WebElement searchbutton;
 
 	// constructor
-	public HotelBookingPage(WebDriver driver) {
+	public HotelSearchPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 

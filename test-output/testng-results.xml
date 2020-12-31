@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="23402" started-at="2020-12-30T21:44:15 EST" finished-at="2020-12-30T21:44:38 EST">
+  <suite name="Default suite" duration-ms="36654" started-at="2020-12-31T01:45:16 EST" finished-at="2020-12-31T01:45:52 EST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="23402" started-at="2020-12-30T21:44:15 EST" finished-at="2020-12-30T21:44:38 EST">
-      <class name="com.goibibo.test.SearchHotelsTest">
-        <test-method status="PASS" signature="openBrowser()[pri:0, instance:com.goibibo.test.SearchHotelsTest@694e1548]" name="openBrowser" is-config="true" duration-ms="15797" started-at="2020-12-30T21:44:15 EST" finished-at="2020-12-30T21:44:31 EST">
+    <test name="Default test" duration-ms="36654" started-at="2020-12-31T01:45:16 EST" finished-at="2020-12-31T01:45:52 EST">
+      <class name="com.goibibo.test.SenarioTwoTest">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:com.goibibo.test.SenarioTwoTest@694e1548]" name="openBrowser" is-config="true" duration-ms="13848" started-at="2020-12-31T01:45:16 EST" finished-at="2020-12-31T01:45:30 EST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method status="PASS" signature="validEmailForgotTest()[pri:1, instance:com.goibibo.test.SearchHotelsTest@694e1548]" name="validEmailForgotTest" duration-ms="7565" started-at="2020-12-30T21:44:31 EST" finished-at="2020-12-30T21:44:38 EST">
+        <test-method status="PASS" signature="HotelCount()[pri:1, instance:com.goibibo.test.SenarioTwoTest@694e1548]" name="HotelCount" duration-ms="22769" started-at="2020-12-31T01:45:30 EST" finished-at="2020-12-31T01:45:52 EST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validEmailForgotTest -->
-      </class> <!-- com.goibibo.test.SearchHotelsTest -->
+        </test-method> <!-- HotelCount -->
+      </class> <!-- com.goibibo.test.SenarioTwoTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
