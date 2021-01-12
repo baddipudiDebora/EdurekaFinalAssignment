@@ -97,9 +97,9 @@ public class BaseClass {
 
 	@AfterSuite()
 	public void tearDown() {
-		sendReportByGMail("debora11.2k@gmail.com", "Remarkable@2020", "debora11.2k@gmail.com", "TestCase Report", "");
-		sendReportByGMail("debora11.2k@gmail.com", "Remarkable@2020", "ananyabs2020@gmail.com", "TestCase Report", "");
-		sendReportByGMail("debora11.2k@gmail.com", "Remarkable@2020", "swaroop.22k@gmail.com", "TestCase Report", "");
+		sendReportByGMail("YourMailID", "YourPassowrd", "Email1", "TestCase Report", "");
+		sendReportByGMail("YourMailID", "YourPassowrd", "Email2", "TestCase Report", "");
+		sendReportByGMail("YourMailID", "YourPassowrd", "Email3", "TestCase Report", "");
 
 		}
 
