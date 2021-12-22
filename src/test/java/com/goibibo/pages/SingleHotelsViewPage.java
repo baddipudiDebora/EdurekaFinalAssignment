@@ -17,7 +17,7 @@ public class SingleHotelsViewPage extends BaseClass {
 	private WebElement selectRoom;
 
 	// hotelnameDisplayed
-	@FindBy(xpath = "//h3[@itemprop='name']")
+	@FindBy(xpath = "//h1[@itemprop='name']")
 	private WebElement hotelName;
 
 	// hotelAddressDisplayed
@@ -27,13 +27,17 @@ public class SingleHotelsViewPage extends BaseClass {
 	// hoteRatingDisplayed
 	@FindBy(xpath = "//div[@itemprop='aggregateRating']")
 	private WebElement hoteRating;
+	
+	// some hotel review
+	@FindBy(xpath = "//span[@class='UserReviewstyles__UserReviewTextStyle-sc-1y05l7z-4 cHVFbF' and contains(text() , ' ')]")
+	private WebElement hotelReviews;
 
 	// viewRoomsButon
-	@FindBy(xpath = "//div[@class='TextFieldExpt__Tag-sc-7a7pro-0 fRzssR']")
+	@FindBy(xpath = "//button[@class='dwebCommonstyles__ButtonBase-sc-112ty3f-10 BookingWidgetstyles__ViewRoomOptionsButton-sc-1tsb1-10 KETBj iiLDmi']")
 	private WebElement viewRoomsButon;
 
 	// roomDetailsDisplayed
-	@FindBy(xpath = "//div[@class='Roomstyles__RoomTypeStyledWrapper-sc-1ivl7fs-2 fhtAew']")
+	@FindBy(xpath = "//button[@data-testid='selectRoomBtn']")
 	private WebElement roomDetails;
 
 	// QandADisplayed
@@ -67,7 +71,9 @@ public class SingleHotelsViewPage extends BaseClass {
 
 	public void gethotelRating() throws InterruptedException {
 		String hotelRatingDisplayed = hoteRating.getText();
-		System.out.println("The Hotel guest reviews are " + hotelRatingDisplayed);
+		System.out.println("The Hotel guest review is  " + hotelRatingDisplayed);
+		System.out.println("Some of the hotel reviews are : "+hotelReviews.getText());
+		
 	}
 
 	public void viewRooms() throws InterruptedException {

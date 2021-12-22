@@ -16,13 +16,15 @@ public class SenarioThreeTest extends BaseClass {
 	//and answers and hotel policies 
 	@Test(priority = 1)
 	public void hotelAndRoomDetials() throws InterruptedException {
+		// Search for a hotel 
 		landingpageobj.clickOnHotes();
 		hotelBookingPageobj.enterHotels("Ooty");
-		hotelBookingPageobj.enterCheckInDate();
+		//hotelBookingPageobj.enterCheckInDate();
 		// hotelBookingPageobj.enterCheckOutDate();
 		hotelBookingPageobj.enterNumofGuest();
 		hotelBookingPageobj.clickOnSearch();
 		Thread.sleep(3000);
+		// select the first the hotel to get the details
 		hotelsViewPageobj.clickOnFirstHotel();
 		// code to switch to anothter tab
 		Set<String> ids = driver.getWindowHandles();

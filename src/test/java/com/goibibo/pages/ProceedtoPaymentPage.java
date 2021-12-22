@@ -19,11 +19,11 @@ public class ProceedtoPaymentPage {
 	private WebElement emailbox;
 
 	// mobileNumber
-	@FindBy(xpath = "//input[@type='text' and @placeholder='Enter Phone Number']")
+	@FindBy(xpath = "//input[@type='number' and @placeholder='Enter Phone Number']")
 	private WebElement mobileNumberbox;
 
 	// proceedtopay
-	@FindBy(xpath = "//button[contains(text(),'Proceed To Payment Options')]")
+	@FindBy(xpath = "//span[contains(text(),'Proceed To Payment Options')]")
 	private WebElement proceedtopay;
 
 	// constructor

@@ -12,7 +12,7 @@ import com.goibibo.base.BaseClass;
 public class LandingPage extends BaseClass {
 	// 1. locators
 	// hotels link
-	@FindBy(xpath = "//span[contains(text(),'Hotels')]")
+	@FindBy(xpath = "//a[@href='/hotels/' and @class='nav-link']")
 	private WebElement hotelsLink;
 
 	// Bus link

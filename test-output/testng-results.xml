@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="25206" started-at="2021-01-08T14:16:45 EST" finished-at="2021-01-08T14:17:10 EST">
+  <suite started-at="2021-12-21T23:32:05 EST" name="Default suite" finished-at="2021-12-21T23:33:29 EST" duration-ms="83799">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="25206" started-at="2021-01-08T14:16:45 EST" finished-at="2021-01-08T14:17:10 EST">
-      <class name="com.goibibo.test.SenarioOneTest">
-        <test-method status="PASS" signature="openBrowser(org.testng.ITestContext)[pri:0, instance:com.goibibo.test.SenarioOneTest@86be70a]" name="openBrowser" is-config="true" duration-ms="14802" started-at="2021-01-08T14:16:45 EST" finished-at="2021-01-08T14:17:00 EST">
+    <test started-at="2021-12-21T23:32:05 EST" name="Default test" finished-at="2021-12-21T23:33:29 EST" duration-ms="83799">
+      <class name="com.goibibo.test.SenarioFourTest">
+        <test-method is-config="true" signature="openBrowser(org.testng.ITestContext)[pri:0, instance:com.goibibo.test.SenarioFourTest@6b8ca3c8]" started-at="2021-12-21T23:32:05 EST" name="openBrowser" finished-at="2021-12-21T23:32:10 EST" duration-ms="4887" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@366ac49b]]>
+                <![CDATA[org.testng.TestRunner@47dd778]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method status="PASS" signature="hotelSearchandView()[pri:1, instance:com.goibibo.test.SenarioOneTest@86be70a]" name="hotelSearchandView" duration-ms="10347" started-at="2021-01-08T14:17:00 EST" finished-at="2021-01-08T14:17:10 EST">
+        <test-method signature="verifySearchFilter()[pri:1, instance:com.goibibo.test.SenarioFourTest@6b8ca3c8]" started-at="2021-12-21T23:32:10 EST" name="verifySearchFilter" finished-at="2021-12-21T23:33:25 EST" duration-ms="74718" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- hotelSearchandView -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.goibibo.test.SenarioOneTest@86be70a]" name="closeBrowser" is-config="true" duration-ms="17" started-at="2021-01-08T14:17:10 EST" finished-at="2021-01-08T14:17:10 EST">
+        </test-method> <!-- verifySearchFilter -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.goibibo.test.SenarioFourTest@6b8ca3c8]" started-at="2021-12-21T23:33:25 EST" name="closeBrowser" finished-at="2021-12-21T23:33:29 EST" duration-ms="4161" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.goibibo.test.SenarioOneTest@86be70a]" name="tearDown" is-config="true" duration-ms="39" started-at="2021-01-08T14:17:10 EST" finished-at="2021-01-08T14:17:11 EST">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.goibibo.test.SenarioFourTest@6b8ca3c8]" started-at="2021-12-21T23:33:29 EST" name="tearDown" finished-at="2021-12-21T23:33:29 EST" duration-ms="24" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.goibibo.test.SenarioOneTest -->
+      </class> <!-- com.goibibo.test.SenarioFourTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -11,15 +11,15 @@ import com.goibibo.base.BaseClass;
 
 public class PaymentPage extends BaseClass {
 	// cardNumber
-	@FindBy(xpath = "//input[@type='text' and @placeholder='Card Number']")
+	@FindBy(xpath = "(//input[@type='text' and @placeholder='Card Number'])[1]")
 	private WebElement cardNumber;
 
 	// NameonCard
-	@FindBy(xpath = "//input[@type='text' and @placeholder='Name']]")
+	@FindBy(xpath = "(//input[@type='text' and @placeholder='Name'])[1]")
 	private WebElement NameonCard;
 
 	// expiryDate
-	@FindBy(xpath = "//input[@type='text' and @placeholder='MM / YY']")
+	@FindBy(xpath = "(//input[@type='text' and @placeholder='MM / YY'])[1]")
 	private WebElement expiryDate;
 
 	// cvvcode
@@ -27,7 +27,7 @@ public class PaymentPage extends BaseClass {
 	private WebElement cvvcode;
 
 	// paymentButton
-	@FindBy(xpath = "// *[@id=\"card\"]/div[2]/div/div[5]/div[3]/div[2]")
+	@FindBy(xpath = "//button[@class='button green large citipatBtn btn payNowBtn']")
 	private WebElement paymentButton;
 
 	// errorforname

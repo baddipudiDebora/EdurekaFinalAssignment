@@ -19,18 +19,21 @@ public class SenarioFourTest extends BaseClass {
 	public void verifySearchFilter() throws InterruptedException {
 		landingpageobj.clickOnHotes();
 		hotelBookingPageobj.enterHotels("Ooty");
-		hotelBookingPageobj.enterCheckInDate();
+	//	hotelBookingPageobj.enterCheckInDate();
 		// hotelBookingPageobj.enterCheckOutDate();
 		hotelBookingPageobj.enterNumofGuest();
 		hotelBookingPageobj.clickOnSearch();
 		// select filters
-		// scroll down
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,500)");
-
-		hotelsViewPageobj.clickOnFirstPriceFilter();
-		hotelsViewPageobj.clickOnCustomer4rating();
+		/*
+		 * // scroll down JavascriptExecutor js = (JavascriptExecutor) driver;
+		 * js.executeScript("window.scrollBy(0,500)");
+		 */
+		hotelsViewPageobj.getHotelsCount();
+		
 		hotelsViewPageobj.clickOnpayAtHotel();
+     
+		hotelsViewPageobj.clickOnCustomer4rating();
+		   hotelsViewPageobj.selectPriceRange();
 		hotelsViewPageobj.clickUpdateSearchButton();
 	
 		hotelsViewPageobj.getfiltersApplied();

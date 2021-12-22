@@ -10,7 +10,7 @@ public class SenarioOneTest extends BaseClass {
 	public void hotelSearchandView() throws InterruptedException {
 		landingpageobj.clickOnHotes();
 		hotelBookingPageobj.enterHotels("Ooty");
-		hotelBookingPageobj.enterCheckInDate();
+		//hotelBookingPageobj.enterCheckInDate();
 		// hotelBookingPageobj.enterCheckOutDate();
 		hotelBookingPageobj.enterNumofGuest();
 		hotelBookingPageobj.clickOnSearch();
