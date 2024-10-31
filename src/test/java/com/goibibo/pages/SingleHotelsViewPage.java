@@ -54,7 +54,7 @@ public class SingleHotelsViewPage extends BaseClass {
 	}
 
 	public void selectRoom() throws InterruptedException {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) this.driver;
 		js.executeScript("window.scrollBy(0,500)");
 		selectRoom.click();
 	}
