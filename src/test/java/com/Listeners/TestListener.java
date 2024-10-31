@@ -4,11 +4,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.io.FileHandler;
+import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -17,10 +21,10 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.model.Log;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 
 public class TestListener implements ITestListener {
-	private static Logger log = Logger.getLogger(Log.class.getName());
+	private static final Logger log = LoggerFactory.getLogger(Log.class.getName());
 	
 	public void onStart(ITestContext context) {
 		System.out.println("*** Test Suite " + context.getName() + " started ***");
@@ -43,8 +47,9 @@ public class TestListener implements ITestListener {
 	}
 
 	public void onTestFailure(ITestResult result) {
-		log.info("*** Test execution " + result.getMethod().getMethodName() + " failed...");
-		log.info((result.getMethod().getMethodName() + " failed!"));
+	   ExtentReports extent =  ExtentManager.createInstance();
+       ExtentTest test = extent.createTest(result.getMethod().getMethodName());
+       test.fail(result.getThrowable().getMessage());
 
 		//ITestContext context = result.getTestContext();
 		WebDriver driver = (WebDriver) result.getTestContext().getAttribute("driver");
@@ -52,22 +57,22 @@ public class TestListener implements ITestListener {
 		String targetLocation = null;
 
 		String testClassName = result.getInstanceName().trim();
-		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date()); // get timestamp
+		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date()); // get timestamp
 		String testMethodName = result.getName().toString().trim();
 		String screenShotName = testMethodName + timeStamp + ".png";
 		String fileSeperator = System.getProperty("file.separator");
 		String reportsPath = System.getProperty("user.dir") + fileSeperator + "TestReport" + fileSeperator
 				+ "screenshots";
-		log.info("Screen shots reports path - " + reportsPath);
+		test.info("Screen shots reports path - " + reportsPath);
 		try {
 			File file = new File(reportsPath + fileSeperator + testClassName); // Set
 																				// screenshots
 																				// folder
 			if (!file.exists()) {
 				if (file.mkdirs()) {
-					log.info("Directory: " + file.getAbsolutePath() + " is created!");
+					test.info("Directory: " + file.getAbsolutePath() + " is created!");
 				} else {
-					log.info("Failed to create directory: " + file.getAbsolutePath());
+					test.info("Failed to create directory: " + file.getAbsolutePath());
 				}
 
 			}
@@ -76,24 +81,20 @@ public class TestListener implements ITestListener {
 			targetLocation = reportsPath + fileSeperator + testClassName + fileSeperator + screenShotName;// define
 																											// location
 			File targetFile = new File(targetLocation);
-			log.info("Screen shot file location - " + screenshotFile.getAbsolutePath());
-			log.info("Target File location - " + targetFile.getAbsolutePath());
+			test.info("Screen shot file location - " + screenshotFile.getAbsolutePath());
+			test.info("Target File location - " + targetFile.getAbsolutePath());
 			FileHandler.copy(screenshotFile, targetFile);
 
 		} catch (FileNotFoundException e) {
-			log.info("File not found exception occurred while taking screenshot " + e.getMessage());
+			test.info("File not found exception occurred while taking screenshot " + e.getMessage());
 		} catch (Exception e) {
-			log.info("An exception occurred while taking screenshot " + e.getCause());
+			test.info("An exception occurred while taking screenshot " + e.getCause());
 		}
 
 		// attach screenshots to report
-		try {
-			ExtentTestManager.getTest().fail("Screenshot",
-					MediaEntityBuilder.createScreenCaptureFromPath(targetLocation).build());
-		} catch (IOException e) {
-			log.info("An exception occured while taking screenshot " + e.getCause());
-		}
-		ExtentTestManager.getTest().log(Status.FAIL, "Test Failed");
+        ExtentTestManager.getTest().fail("Screenshot",
+                MediaEntityBuilder.createScreenCaptureFromPath(targetLocation).build());
+        ExtentTestManager.getTest().log(Status.FAIL, "Test Failed");
 	}
 
 	public void onTestSkipped(ITestResult result) {

@@ -15,22 +15,17 @@ public class SenarioTwoTest extends BaseClass {
 	//and observe the error message  
 	@Test(priority = 1)
 	public void invalidPaymentError() throws InterruptedException {
+		Thread.sleep(5000);
+		landingpageobj.closePopUpWindow();
+		Thread.sleep(2000);
 		landingpageobj.clickOnHotes();
 		hotelBookingPageobj.enterHotels("Ooty");
-		//hotelBookingPageobj.enterCheckInDate();
-		// hotelBookingPageobj.enterCheckOutDate();
 		hotelBookingPageobj.enterNumofGuest();
 		hotelBookingPageobj.clickOnSearch();
 		Thread.sleep(3000);
+		hotelsViewPageobj.getHotelsCount();
 		hotelsViewPageobj.clickOnFirstHotel();
 		Thread.sleep(3000);
-		// to switch the control from one tab to another
-		Set<String> ids = driver.getWindowHandles();
-		Iterator<String> iterator = ids.iterator();
-		String parentID = iterator.next();
-		String childID = iterator.next();
-	
-		driver.switchTo().window(childID);
 		singleHotelViewPageobj.selectRoom();
 		proceedtoPaymentPageobj.enterBookingDetails("Swaroop","Baddipudi","swarp.k@gmail.com","9857856765");
 		

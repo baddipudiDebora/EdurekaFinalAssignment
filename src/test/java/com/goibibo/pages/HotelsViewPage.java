@@ -1,6 +1,8 @@
 package com.goibibo.pages;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,14 +10,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static com.goibibo.base.Seleniumcucumber.driver;
+
 public class HotelsViewPage {
 	// hotelsDisplayGrid
-	@FindBy(xpath = "//div[@class='HotelCardstyles__WrapperSectionMetaDiv-sc-1s80tyk-5 jizVXu']")
+	@FindBy(xpath = "//div[@class='HotelCardV2styles__SRPCardWrapper-sc-6przws-0 dgWXvH']")
 	private List<WebElement> hotelsdisplayGrid;;
 
-	// hotelnameDisplayed
-	@FindBy(xpath = "//h4[@itemprop='name']")
-	private WebElement hotelName;
 
 	// PayAtHotelfilter
 	@FindBy(xpath = "//span[contains(text(),'Pay At Hotel Available')]")
@@ -44,22 +45,20 @@ public class HotelsViewPage {
 	
 	
 	// constructor
-	public HotelsViewPage(WebDriver driver) {
+	public HotelsViewPage(WebDriver driver)
+	{
 		PageFactory.initElements(driver, this);
 	}
 // all methods written here
 	public void getHotelsCount() throws InterruptedException {
-		System.out.println("The number of hotes with for this search is " + hotelsdisplayGrid.size());
+    Thread.sleep(2000);
+		System.out.println("The number of hotels with for this search is " + hotelsdisplayGrid.size());
 	}
 
 	public void clickOnFirstHotel() throws InterruptedException {
 		hotelsdisplayGrid.get(0).click();
 	}
 
-	public void getFirstHotelName() throws InterruptedException {
-		String firstHotel = hotelName.getText();
-		System.out.println("The first Displayed Hotel is " + firstHotel);
-	}
    public void selectPriceRange()  {
 	   try {
 		Thread.sleep(3000);
@@ -71,7 +70,18 @@ public class HotelsViewPage {
 	}
 	
    }
-	
+
+   public void switchWindowTab(){
+	   // to switch the control from one tab to another
+	   Set<String> ids = driver.getWindowHandles();
+	   Iterator<String> iterator = ids.iterator();
+	   String parentID = iterator.next();
+	   System.out.println(parentID);
+	   String childID = iterator.next();
+
+	   driver.switchTo().window(childID);
+   }
+
 	public void clickOnCustomer4rating() {
 		  System.out.println("workign fine till select customer rating range");
 		customer4rating.click();

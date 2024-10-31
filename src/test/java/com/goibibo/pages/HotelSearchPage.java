@@ -6,10 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 
 import com.goibibo.base.BaseClass;
 
 public class HotelSearchPage {
+	//popupQRcode
+	@FindBy(xpath = "//*[contains(@class, 'sc-gzVdWW eWRsql')]")
+	private WebElement qrCode;
 	// HotelSearchtextbox
 	@FindBy(id = "downshift-1-input")
 	private WebElement hotelSearchtextbox;
@@ -26,17 +30,17 @@ public class HotelSearchPage {
 	@FindBy(xpath = "// span[contains(text(),'29')]")
 	private WebElement checkOutDatetoEnter;
 	// numberofGuestButton
-	@FindBy(xpath = "//input[@value='2 Guests in 1 Room ']")
+	@FindBy(xpath = "//input[@value='2 Adults  | 1 Room ']")
 	private WebElement numberofGuestButton;
 	// minusnumberofGuestButton
-	@FindBy(xpath = "//*[@id=\"root\"]/div[2]/div/section[1]/div[1]/div[2]/div[4]/div/div/div/div[2]/div/span[1]")
-	private WebElement minusnumberofGuestButton;
-	// doneButtonNumGuest
+//	@FindBy(xpath = "//*[@id=\"root\"]/div[2]/div/section[1]/div[1]/div[2]/div[4]/div/div/div/div[2]/div/span[1]")
+//	private WebElement minusnumberofGuestButton;
+//	// doneButtonNumGuest
 	@FindBy(xpath = "//button[contains(text(),'Done')]")
 	private WebElement doneButtonNumGuest;
 
 	// search button
-	@FindBy(xpath = "//button[contains(text(),'Search Hotels')]")
+	@FindBy(xpath = "//button[contains(text(),'Search')]")
 	private WebElement searchbutton;
 
 	// constructor
@@ -64,14 +68,24 @@ public class HotelSearchPage {
 		checkOutDatetoEnter.click();
 	}
 
+	public  void closeQRCode(){
+		qrCode.click();
+	}
+
 	public void enterNumofGuest() throws InterruptedException {
 		numberofGuestButton.click();
-		minusnumberofGuestButton.click();
+		qrCode.click();
+//		minusnumberofGuestButton.click();
+		// scroll Down to click on Done button
+		// Create an instance of JavascriptExecutor
+
+		// Click the element
 		doneButtonNumGuest.click();
 
 	}
 
 	public void clickOnSearch() {
 		searchbutton.click();
+		System.out.println("Search button clicked");
 	}
 }

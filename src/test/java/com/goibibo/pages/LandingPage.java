@@ -12,7 +12,10 @@ import com.goibibo.base.BaseClass;
 public class LandingPage extends BaseClass {
 	// 1. locators
 	// hotels link
-	@FindBy(xpath = "//a[@href='/hotels/' and @class='nav-link']")
+	@FindBy(xpath = "//span[@role='presentation']")
+	private WebElement popup;
+
+	@FindBy(xpath = "//span[contains(text(),'Hotels')]")
 	private WebElement hotelsLink;
 
 	// Bus link
@@ -25,6 +28,8 @@ public class LandingPage extends BaseClass {
 	}
 
 	// 3. methods
+	public  void  closePopUpWindow(){ popup.click();
+		System.out.println("Pop Up Window closed");}
 	public void clickOnHotes() {
 		hotelsLink.click();
 	}
